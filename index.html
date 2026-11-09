@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fraud Transaction Detection</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div>
+            <h1>🛡 Fraud Detection System</h1>
+            <p>Transaction Monitoring Dashboard</p>
+        </div>
+
+        <span class="badge">Demo System</span>
+    </header>
+
+    <main class="container">
+
+        <!-- DASHBOARD -->
+
+        <section class="dashboard">
+
+            <div class="card">
+                <h3>Total Transactions</h3>
+                <h2 id="totalTransactions">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Fraud Transactions</h3>
+                <h2 id="fraudTransactions">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Genuine Transactions</h3>
+                <h2 id="genuineTransactions">0</h2>
+            </div>
+
+        </section>
+
+        <!-- TRANSACTION FORM -->
+
+        <section class="panel">
+
+            <h2>Check Transaction</h2>
+
+            <form id="transactionForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Transaction ID</label>
+
+                        <input
+                            type="text"
+                            id="transactionId"
+                            placeholder="Enter Transaction ID"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>Account Number</label>
+
+                        <input
+                            type="text"
+                            id="accountNumber"
+                            placeholder="Enter Account Number"
+                            minlength="4"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>Transaction Amount (₹)</label>
+
+                        <input
+                            type="number"
+                            id="amount"
+                            placeholder="Enter Amount"
+                            min="1"
+                            step="0.01"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>Transaction Type</label>
+
+                        <select id="transactionType" required>
+
+                            <option value="">Select Type</option>
+
+                            <option value="Deposit">Deposit</option>
+
+                            <option value="Withdrawal">Withdrawal</option>
+
+                            <option value="Transfer">Transfer</option>
+
+                            <option value="Payment">Payment</option>
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="primary-btn">
+                    Detect Fraud
+                </button>
+
+            </form>
+
+            <!-- RESULT -->
+
+            <div id="result" class="result hidden"></div>
+
+        </section>
+
+        <!-- TRANSACTION HISTORY -->
+
+        <section class="panel">
+
+            <div class="history-header">
+
+                <h2>Transaction History</h2>
+
+                <button
+                    class="delete-all-btn"
+                    id="deleteAll"
+                    type="button"
+                >
+                    Clear History
+                </button>
+
+            </div>
+
+            <input
+                type="text"
+                id="searchTransaction"
+                placeholder="Search transaction..."
+                class="search-box"
+            >
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Account</th>
+                            <th>Amount</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="transactionTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p id="emptyMessage" class="empty-message">
+                No transactions available.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+            Fraud Transaction Detection System |
+            HTML, CSS & JavaScript
+        </p>
+
+        <p>
+            Academic Demo Project
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
